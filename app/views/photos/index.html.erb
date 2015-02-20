@@ -2,6 +2,8 @@
 
 <h1>Listing Photos</h1>
 
+<%= page_entries_info @photos %>
+
 <table>
   <thead>
     <tr>
@@ -31,3 +33,5 @@
 <br>
 
 <%= link_to 'New Photo', new_photo_path %>
+
+<%= paginate @photos %>
