@@ -4,7 +4,11 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    if params[:tag]
+    if params.key?(:sq)
+      search_params = {}
+      search_params.merge!(original_search_params)
+      @photos = Photo.search(search_params).result(distinct: true).page(params[:page])
+    elsif params[:tag]
       @photos = Photo.tagged_with(params[:tag]).page(params[:page])
     else
       @photos = Photo.page(params[:page])
@@ -74,5 +78,16 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:number, :place, :lens, :image, :image_cache, :remove_image, :tag_list)
+    end
+
+    def original_search_params
+      ret = {}
+      return ret unless params.key?(:sq)
+
+      ret.merge!({ photo_number_cont_any: params[:sq][:photo_number].split(' ') }) if params[:sq].key?(:photo_number) && !params[:sq][:photo_number].blank?
+      ret.merge!({ place_cont_any: params[:sq][:place].split(' ') }) if params[:sq].key?(:place) && !params[:sq][:place].blank?
+      ret.merge!({ lens_cont_any: params[:sq][:lens].split(' ') }) if params[:sq].key?(:lens) && !params[:sq][:lens].blank?
+
+      return ret
     end
 end

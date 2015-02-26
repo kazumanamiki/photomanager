@@ -1,0 +1,9 @@
+<%= form_tag(photos_path, method: :get) do |f| %>
+  <%= label_tag "sq[photo_number]", "写真番号" %>
+  <%= text_field_tag "sq[photo_number]", @sq[:photo_number] %>
+  <%= label_tag 'sq[place]', "場所" %>
+  <%= text_field_tag "sq[place]", @sq[:place] %>
+  <%= label_tag 'sq[lens]', "レンズ" %>
+  <%= text_field_tag "sq[lens]", @sq[:lens] %>
+  <%= submit_tag "検索", class: "btn btn-primary" %>
+<% end %>
