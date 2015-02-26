@@ -24,7 +24,7 @@
     <%= f.text_field :lens %>
   </div>
 
-  <!-- 追加箇所 開始 -->
+  <!-- 画像アップデート箇所　開始 -->
   <div class="field">
     <% if @photo.image? %>
       <div class="thumbnail">
@@ -44,7 +44,12 @@
       </label>
     <% end %>
   </div>
-  <!-- 追加箇所 終了 -->
+  <!-- 画像アップデート箇所　開始  終了 -->
+
+  <div class="field">
+    タグ<br>
+    <%= f.text_field :tag_list %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

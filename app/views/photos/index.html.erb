@@ -11,6 +11,7 @@
       <th>Place</th>
       <th>Lens</th>
       <th>Image</th>
+      <th>Tags</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,13 @@
         <td><%= photo.place %></td>
         <td><%= photo.lens %></td>
         <td><%= image_tag(photo.image.url, :size => "150x150") %></td>
+        <td>
+          <% if photo.tags %>
+            <% photo.tags.each_with_index do |tag, index| %>
+              <p><%= link_to "#{tag.name} (#{tag.taggings_count})", photos_path(tag: tag.name) %></p>
+            <% end %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
         <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
