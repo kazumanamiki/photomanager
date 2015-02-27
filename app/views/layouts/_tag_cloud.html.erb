@@ -1,0 +1,5 @@
+<div id="tag-cloud">
+	<% tag_cloud(Photo.tag_counts_on(:tags), %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
+		<%= link_to "#{tag.name} (#{tag.taggings_count})", photos_path(tag: tag.name), :class => css_class %>
+	<% end %>
+</div>
