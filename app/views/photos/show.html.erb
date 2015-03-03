@@ -1,18 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>写真番号:</strong>
   <%= @photo.number %>
 </p>
 
 <p>
-  <strong>Place:</strong>
+  <strong>撮影場所:</strong>
   <%= @photo.place %>
 </p>
 
 <p>
-  <strong>Lens:</strong>
+  <strong>撮影日時（時期）:</strong>
+  <%= @photo.shot_date %>
+</p>
+
+<p>
+  <strong>フィルムサイズ:</strong>
+  <%= @photo.film %>
+</p>
+
+<p>
+  <strong>カメラ:</strong>
+  <%= @photo.camera %>
+</p>
+
+<p>
+  <strong>レンズ:</strong>
   <%= @photo.lens %>
+</p>
+
+<p>
+  <strong>取り込み会社:</strong>
+  <%= @photo.capture_office %>
+</p>
+
+<p>
+  <strong>コメント:</strong>
+  <%= @photo.comment %>
 </p>
 
 <p>
@@ -28,21 +53,6 @@
 <p>
   <strong>ファイル名:</strong>
   <%= @photo.file_name %>
-</p>
-
-<p>
-  <strong>フィルムサイズ:</strong>
-  <%= @photo.film %>
-</p>
-
-<p>
-  <strong>カメラ:</strong>
-  <%= @photo.camera %>
-</p>
-
-<p>
-  <strong>取り込み会社:</strong>
-  <%= @photo.capture_office %>
 </p>
 
 <p>
