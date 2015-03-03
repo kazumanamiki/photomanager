@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
-  protect_from_forgery except: :create
+  protect_from_forgery except: [:create, :update]
 
   # GET /photos
   # GET /photos.json
@@ -83,7 +83,7 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:number, :place, :lens, :image, :volume, :path, :file_name, :film, :camera, :capture_office, :image_cache, :remove_image, :tag_list)
+      params.require(:photo).permit(:number, :place, :lens, :volume, :path, :file_name, :film, :camera, :capture_office, :image, :image_cache, :remove_image, :tag_list)
     end
 
     def original_search_params
