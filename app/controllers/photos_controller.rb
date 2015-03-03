@@ -1,6 +1,8 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
+  protect_from_forgery except: :create
+
   # GET /photos
   # GET /photos.json
   def index
