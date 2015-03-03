@@ -6,3 +6,10 @@
 
 * ImageMagick
 
+すでに外付けHDD等に大量の画像が存在する場合、下記のスクリプトを使うことで簡単に追加できます。
+
+* upload_photo.sh
+<https://gist.github.com/kazumanamiki/be978faef0e107a5cd3e>
+
+* photo_meta_maker.rb
+<https://gist.github.com/kazumanamiki/8d6c166fcdbc85b54f8f>
