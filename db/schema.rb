@@ -11,18 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303014146) do
+ActiveRecord::Schema.define(version: 20150303021339) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "number"
     t.string   "place"
     t.string   "lens"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "image"
     t.string   "volume"
     t.string   "path"
     t.string   "file_name"
+    t.string   "film"
+    t.string   "camera"
+    t.string   "capture_office"
   end
 
   create_table "taggings", force: :cascade do |t|
