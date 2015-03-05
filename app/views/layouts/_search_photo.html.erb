@@ -1,11 +1,67 @@
-<div id="search-form">
-	<%= form_tag(photos_path, method: :get) do |f| %>
-		<%= label_tag "sq[photo_number]", "写真番号" %>
-		<%= text_field_tag "sq[photo_number]", @sq[:photo_number] %>
-		<%= label_tag 'sq[place]', "場所" %>
-		<%= text_field_tag "sq[place]", @sq[:place] %>
-		<%= label_tag 'sq[lens]', "レンズ" %>
-		<%= text_field_tag "sq[lens]", @sq[:lens] %>
-		<%= submit_tag "検索", class: "btn btn-primary" %>
-	<% end %>
+
+<div class="panel panel-default">
+	<div class="panel-heading"><h2 class="panel-title">検索フォーム</h2></div>
+	<div class="panel-body">
+		<div id="search-form">
+			<%= form_tag(photos_path, method: :get) do |f| %>
+
+				<div class="row">
+					<div class="col-sm-6">
+
+						<div class="form-group">
+							<%= label_tag "sq[photo_number]", "写真番号" %>
+							<%= text_field_tag "sq[photo_number]", @sq[:photo_number], class: "form-control" %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[place]', "場所" %>
+							<%= text_field_tag "sq[place]", @sq[:place], class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[shot_date]', "撮影日時" %>
+							<%= text_field_tag "sq[shot_date]", @sq[:shot_date], class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[film]', "フィルム" %>
+							<%= text_field_tag "sq[film]", @sq[:film], class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[camera]', "カメラ" %>
+							<%= text_field_tag "sq[camera]", @sq[:camera], class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[lens]', "レンズ" %>
+							<%= text_field_tag "sq[lens]", @sq[:lens], class: "form-control"  %>
+						</div>
+
+					</div>
+					<div class="col-sm-6">
+
+						<div class="form-group">
+							<%= label_tag 'sq[capture_office]', "取り込み会社" %>
+							<%= text_field_tag "sq[capture_office]", @sq[:capture_office], class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[comment]', "コメント" %>
+							<%= text_field_tag "sq[comment]", @sq[:comment], class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[volume]', "外付けHDD名" %>
+							<%= text_field_tag "sq[volume]", @sq[:volume], class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[path]', "格納パス" %>
+							<%= text_field_tag "sq[path]", @sq[:path], class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[file_name]', "ファイル名" %>
+							<%= text_field_tag "sq[file_name]", @sq[:file_name], class: "form-control"  %>
+						</div>
+
+					</div>
+				</div>
+
+				<%= submit_tag "検索", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
 </div>

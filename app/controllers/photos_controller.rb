@@ -10,10 +10,13 @@ class PhotosController < ApplicationController
       search_params = {}
       search_params.merge!(original_search_params)
       @photos = Photo.search(search_params).result(distinct: true).page(params[:page])
+      @page_h1 = '検索結果'
     elsif params[:tag]
       @photos = Photo.tagged_with(params[:tag]).page(params[:page])
+      @page_h1 = "タグ結果 - #{params[:tag]}"
     else
       @photos = Photo.page(params[:page])
+      @page_h1 = '写真一覧'
     end
   end
 
@@ -92,7 +95,16 @@ class PhotosController < ApplicationController
 
       ret.merge!({ photo_number_cont_any: params[:sq][:photo_number].split(' ') }) if params[:sq].key?(:photo_number) && !params[:sq][:photo_number].blank?
       ret.merge!({ place_cont_any: params[:sq][:place].split(' ') }) if params[:sq].key?(:place) && !params[:sq][:place].blank?
+      ret.merge!({ shot_date_cont_any: params[:sq][:shot_date].split(' ') }) if params[:sq].key?(:shot_date) && !params[:sq][:shot_date].blank?
+      ret.merge!({ film_cont_any: params[:sq][:film].split(' ') }) if params[:sq].key?(:film) && !params[:sq][:film].blank?
+      ret.merge!({ camera_cont_any: params[:sq][:camera].split(' ') }) if params[:sq].key?(:camera) && !params[:sq][:camera].blank?
       ret.merge!({ lens_cont_any: params[:sq][:lens].split(' ') }) if params[:sq].key?(:lens) && !params[:sq][:lens].blank?
+      ret.merge!({ capture_office_cont_any: params[:sq][:capture_office].split(' ') }) if params[:sq].key?(:capture_office) && !params[:sq][:capture_office].blank?
+      ret.merge!({ comment_cont_any: params[:sq][:comment].split(' ') }) if params[:sq].key?(:comment) && !params[:sq][:comment].blank?
+      ret.merge!({ volume_cont_any: params[:sq][:volume].split(' ') }) if params[:sq].key?(:volume) && !params[:sq][:volume].blank?
+      ret.merge!({ path_cont_any: params[:sq][:path].split(' ') }) if params[:sq].key?(:path) && !params[:sq][:path].blank?
+      ret.merge!({ file_name_cont_any: params[:sq][:file_name].split(' ') }) if params[:sq].key?(:file_name) && !params[:sq][:file_name].blank?
+
 
       return ret
     end

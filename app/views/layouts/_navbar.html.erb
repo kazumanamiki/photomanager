@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_url %>">Photo Manager</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="<%= photos_path %>">写真一覧</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">グループ <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">ここに</a></li>
+            <li><a href="#">写真集とかの</a></li>
+            <li><a href="#">リンクを出す？</a></li>
+            <li class="divider"></li>
+            <li><a href="#">ここに写真会社とか？</a></li>
+            <li class="divider"></li>
+            <li><a href="#">何か</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

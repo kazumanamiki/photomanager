@@ -1,5 +1,11 @@
-<div id="tag-cloud">
-	<% tag_cloud(Photo.tag_counts_on(:tags), %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
-		<%= link_to "#{tag.name} (#{tag.taggings_count})", photos_path(tag: tag.name), :class => css_class %>
-	<% end %>
+
+<div class="panel panel-default">
+	<div class="panel-heading"><h2 class="panel-title">タグ一覧</h2></div>
+	<div class="panel-body">
+		<div id="tag-cloud">
+			<% tag_cloud(Photo.tag_counts_on(:tags), %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
+				<a href="<%= photos_path(tag: tag.name) %>"><%= tag.name %>(<%= tag.taggings_count %>)</a>
+			<% end %>
+		</div>
+	</div>
 </div>
