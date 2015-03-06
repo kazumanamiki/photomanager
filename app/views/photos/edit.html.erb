@@ -1,6 +1,43 @@
-<h1>Editing Photo</h1>
+<h1>情報編集</h1>
 
-<%= render 'form' %>
+<%= form_for(@photo) do |f| %>
+	<div class="row">
 
-<%= link_to 'Show', @photo %> |
-<%= link_to 'Back', photos_path %>
+		<div class="col-sm-6">
+			<div class="field">
+				<%= f.file_field :image %>
+				<%= f.hidden_field :image_cache %>
+				<% if @photo.image? %>
+					<div class="thumbnail">
+						<%= image_tag @photo.image.url %>
+					</div>
+				<% end %>
+				<% if @photo.persisted? && @photo.image? %>
+					<%= f.check_box :remove_image %>画像を削除
+				<% end %>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<table class="table table-hover table-striped">
+				<tr><th>項目</th><th>値</th></tr>
+				<tr><td>写真番号</td><td><%= f.text_field :number, class: "form-control"%></td></tr>
+				<tr><td>場所</td><td><%= f.text_field :place, class: "form-control"%></td></tr>
+				<tr><td>撮影日時（時期）</td><td><%= f.text_field :shot_date, class: "form-control"%></td></tr>
+				<tr><td>フィルムサイズ</td><td><%= f.text_field :film, class: "form-control"%></td></tr>
+				<tr><td>カメラ</td><td><%= f.text_field :camera, class: "form-control"%></td></tr>
+				<tr><td>レンズ</td><td><%= f.text_field :lens, class: "form-control"%></td></tr>
+				<tr><td>取り込み会社</td><td><%= f.text_field :capture_office, class: "form-control"%></td></tr>
+				<tr><td>コメント</td><td><%= f.text_field :comment, class: "form-control"%></td></tr>
+				<tr><td>ボリューム</td><td><%= f.text_field :volume, class: "form-control"%></td></tr>
+				<tr><td>パス</td><td><%= f.text_field :path, class: "form-control"%></td></tr>
+				<tr><td>ファイル名</td><td><%= f.text_field :file_name, class: "form-control"%></td></tr>
+				<tr><td>タグ</td><td><%= f.text_field :tag_list, class: "form-control" %></td></tr>
+			</table>
+			<p>
+				<%= f.submit "更新", class: "btn btn-primary btn-lg" %>
+				<a href="<%= photos_path %>" class="btn btn-default btn-lg" role="button">戻る</a>
+			</p>
+		</div>
+	</div>
+<% end %>

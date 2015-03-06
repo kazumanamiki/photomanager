@@ -1,68 +1,48 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>写真番号:</strong>
-  <%= @photo.number %>
-</p>
+<h1>写真番号：<%= @photo.number %></h1>
 
-<p>
-  <strong>撮影場所:</strong>
-  <%= @photo.place %>
-</p>
 
-<p>
-  <strong>撮影日時（時期）:</strong>
-  <%= @photo.shot_date %>
-</p>
+<div class="row">
 
-<p>
-  <strong>フィルムサイズ:</strong>
-  <%= @photo.film %>
-</p>
-
-<p>
-  <strong>カメラ:</strong>
-  <%= @photo.camera %>
-</p>
-
-<p>
-  <strong>レンズ:</strong>
-  <%= @photo.lens %>
-</p>
-
-<p>
-  <strong>取り込み会社:</strong>
-  <%= @photo.capture_office %>
-</p>
-
-<p>
-  <strong>コメント:</strong>
-  <%= @photo.comment %>
-</p>
-
-<p>
-  <strong>ボリューム:</strong>
-  <%= @photo.volume %>
-</p>
-
-<p>
-  <strong>パス:</strong>
-  <%= @photo.path %>
-</p>
-
-<p>
-  <strong>ファイル名:</strong>
-  <%= @photo.file_name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
+  <div class="col-sm-6">
   <% if @photo.image? %>
     <div class="thumbnail">
-      <%= image_tag @photo.image.url %>
+      <%= image_tag @photo.image.url%>
     </div>
   <% end %>
-</p>
+  </div>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+  <div class="col-sm-6">
+    <table class="table table-hover table-striped">
+      <tr>
+        <th>項目</th>
+        <th>値</th>
+      </tr>
+      <tr><td>写真番号</td><td><%= @photo.number %></td></tr>
+      <tr><td>場所</td><td><%= @photo.place %></td></tr>
+      <tr><td>撮影日時（時期）</td><td><%= @photo.shot_date %></td></tr>
+      <tr><td>フィルムサイズ</td><td><%= @photo.film %></td></tr>
+      <tr><td>カメラ</td><td><%= @photo.camera %></td></tr>
+      <tr><td>レンズ</td><td><%= @photo.lens %></td></tr>
+      <tr><td>取り込み会社</td><td><%= @photo.capture_office %></td></tr>
+      <tr><td>コメント</td><td><%= @photo.comment %></td></tr>
+      <tr><td>ボリューム</td><td><%= @photo.volume %></td></tr>
+      <tr><td>パス</td><td><%= @photo.path %></td></tr>
+      <tr><td>ファイル名</td><td><%= @photo.file_name %></td></tr>
+      <tr>
+        <td>タグ</td>
+        <td>
+        <% if @photo.tags %>
+          <% @photo.tags.each_with_index do |tag, index| %>
+            <%= link_to "#{tag.name}(#{tag.taggings_count})", photos_path(tag: tag.name) %>
+          <% end %>
+        <% end %>
+        </td>
+      </tr>
+    </table>
+    <p>
+      <a href="<%= edit_photo_path(@photo) %>" class="btn btn-primary btn-lg" role="button">編集</a>
+      <a href="<%= photos_path %>" class="btn btn-default btn-lg" role="button">戻る</a>
+    </p>
+  </div>
+</div>
