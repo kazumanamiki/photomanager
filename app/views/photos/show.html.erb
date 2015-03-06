@@ -25,7 +25,7 @@
       <tr><td>カメラ</td><td><%= @photo.camera %></td></tr>
       <tr><td>レンズ</td><td><%= @photo.lens %></td></tr>
       <tr><td>取り込み会社</td><td><%= @photo.capture_office %></td></tr>
-      <tr><td>コメント</td><td><%= @photo.comment %></td></tr>
+      <tr><td>コメント</td><td><%= simple_format(h(@photo.comment)) %></td></tr>
       <tr><td>ボリューム</td><td><%= @photo.volume %></td></tr>
       <tr><td>パス</td><td><%= @photo.path %></td></tr>
       <tr><td>ファイル名</td><td><%= @photo.file_name %></td></tr>
