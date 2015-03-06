@@ -32,7 +32,7 @@
 				<tr><td>ボリューム</td><td><%= f.text_field :volume, class: "form-control"%></td></tr>
 				<tr><td>パス</td><td><%= f.text_field :path, class: "form-control"%></td></tr>
 				<tr><td>ファイル名</td><td><%= f.text_field :file_name, class: "form-control"%></td></tr>
-				<tr><td>タグ</td><td><%= f.text_field :tag_list, class: "form-control" %></td></tr>
+				<tr><td>タグ</td><td><%= text_field_tag 'photo[tag_list]', @photo.tag_list.join(','), "data-role" => "tagsinput" %></td></tr>
 			</table>
 			<p>
 				<%= f.submit "更新", class: "btn btn-primary btn-lg" %>

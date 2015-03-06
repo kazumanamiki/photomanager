@@ -34,7 +34,8 @@
         <td>
         <% if @photo.tags %>
           <% @photo.tags.each_with_index do |tag, index| %>
-            <%= link_to "#{tag.name}(#{tag.taggings_count})", photos_path(tag: tag.name) %>
+            <a href="<%= photos_path(tag: tag.name) %>" class="btn btn-info btn-xs"><%= "#{tag.name}(#{tag.taggings_count})"%></a>
+            
           <% end %>
         <% end %>
         </td>
