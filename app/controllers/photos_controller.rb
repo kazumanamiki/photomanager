@@ -86,7 +86,7 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:number, :place, :shot_date, :film, :camera, :lens, :capture_office, :comment, :volume, :path, :file_name, :image, :image_cache, :remove_image, :tag_list)
+      params.require(:photo).permit(:number, :place, :shot_date, :shot_time, :film, :camera, :lens, :capture_office, :comment, :volume, :path, :file_name, :md5, :file_size, :image, :image_cache, :remove_image, :tag_list)
     end
 
     def original_search_params
@@ -96,6 +96,7 @@ class PhotosController < ApplicationController
       ret.merge!({ photo_number_cont_any: params[:sq][:photo_number].split(' ') }) if params[:sq].key?(:photo_number) && !params[:sq][:photo_number].blank?
       ret.merge!({ place_cont_any: params[:sq][:place].split(' ') }) if params[:sq].key?(:place) && !params[:sq][:place].blank?
       ret.merge!({ shot_date_cont_any: params[:sq][:shot_date].split(' ') }) if params[:sq].key?(:shot_date) && !params[:sq][:shot_date].blank?
+      ret.merge!({ shot_time_cont_any: params[:sq][:shot_time].split(' ') }) if params[:sq].key?(:shot_time) && !params[:sq][:shot_time].blank?
       ret.merge!({ film_cont_any: params[:sq][:film].split(' ') }) if params[:sq].key?(:film) && !params[:sq][:film].blank?
       ret.merge!({ camera_cont_any: params[:sq][:camera].split(' ') }) if params[:sq].key?(:camera) && !params[:sq][:camera].blank?
       ret.merge!({ lens_cont_any: params[:sq][:lens].split(' ') }) if params[:sq].key?(:lens) && !params[:sq][:lens].blank?
@@ -104,6 +105,8 @@ class PhotosController < ApplicationController
       ret.merge!({ volume_cont_any: params[:sq][:volume].split(' ') }) if params[:sq].key?(:volume) && !params[:sq][:volume].blank?
       ret.merge!({ path_cont_any: params[:sq][:path].split(' ') }) if params[:sq].key?(:path) && !params[:sq][:path].blank?
       ret.merge!({ file_name_cont_any: params[:sq][:file_name].split(' ') }) if params[:sq].key?(:file_name) && !params[:sq][:file_name].blank?
+      ret.merge!({ md5_cont_any: params[:sq][:md5].split(' ') }) if params[:sq].key?(:md5) && !params[:sq][:md5].blank?
+      ret.merge!({ file_size_cont_any: params[:sq][:file_size].split(' ') }) if params[:sq].key?(:file_size) && !params[:sq][:file_size].blank?
 
 
       return ret

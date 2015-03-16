@@ -20,7 +20,8 @@
       </tr>
       <tr><td>写真番号</td><td><%= @photo.number %></td></tr>
       <tr><td>場所</td><td><%= @photo.place %></td></tr>
-      <tr><td>撮影日時（時期）</td><td><%= @photo.shot_date %></td></tr>
+      <tr><td>撮影日（時期）</td><td><%= @photo.shot_date %></td></tr>
+      <tr><td>撮影時間</td><td><%= @photo.shot_time %></td></tr>
       <tr><td>フィルムサイズ</td><td><%= @photo.film %></td></tr>
       <tr><td>カメラ</td><td><%= @photo.camera %></td></tr>
       <tr><td>レンズ</td><td><%= @photo.lens %></td></tr>
@@ -29,6 +30,8 @@
       <tr><td>ボリューム</td><td><%= @photo.volume %></td></tr>
       <tr><td>パス</td><td><%= @photo.path %></td></tr>
       <tr><td>ファイル名</td><td><%= @photo.file_name %></td></tr>
+      <tr><td>md5</td><td><%= @photo.md5 %></td></tr>
+      <tr><td>ファイルサイズ</td><td><%= number_to_human_size(@photo.file_size) %></td></tr>
       <tr>
         <td>タグ</td>
         <td>

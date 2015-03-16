@@ -23,7 +23,8 @@
 				<tr><th>項目</th><th>値</th></tr>
 				<tr><td>写真番号</td><td><%= f.text_field :number, class: "form-control"%></td></tr>
 				<tr><td>場所</td><td><%= f.text_field :place, class: "form-control"%></td></tr>
-				<tr><td>撮影日時（時期）</td><td><%= f.text_field :shot_date, class: "form-control"%></td></tr>
+				<tr><td>撮影日（時期）</td><td><%= f.text_field :shot_date, class: "form-control"%></td></tr>
+				<tr><td>撮影時間</td><td><%= f.text_field :shot_time, class: "form-control"%></td></tr>
 				<tr><td>フィルムサイズ</td><td><%= f.text_field :film, class: "form-control"%></td></tr>
 				<tr><td>カメラ</td><td><%= f.text_field :camera, class: "form-control"%></td></tr>
 				<tr><td>レンズ</td><td><%= f.text_field :lens, class: "form-control"%></td></tr>
@@ -32,6 +33,8 @@
 				<tr><td>ボリューム</td><td><%= f.text_field :volume, class: "form-control"%></td></tr>
 				<tr><td>パス</td><td><%= f.text_field :path, class: "form-control"%></td></tr>
 				<tr><td>ファイル名</td><td><%= f.text_field :file_name, class: "form-control"%></td></tr>
+				<tr><td>md5</td><td><%= f.text_field :md5, class: "form-control"%></td></tr>
+				<tr><td>ファイルサイズ</td><td><%= f.text_field :file_size, class: "form-control"%></td></tr>
 				<tr><td>タグ</td><td><%= text_field_tag 'photo[tag_list]', @photo.tag_list.join(','), "data-role" => "tagsinput" %></td></tr>
 			</table>
 			<p>
