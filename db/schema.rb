@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316014839) do
+ActiveRecord::Schema.define(version: 20150316015442) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "number"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150316014839) do
     t.string   "camera"
     t.string   "capture_office"
     t.string   "shot_date"
-    t.string   "comment"
+    t.text     "comment"
     t.string   "shot_time"
     t.string   "md5"
     t.integer  "file_size"
