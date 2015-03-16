@@ -17,8 +17,12 @@
 							<%= text_field_tag "sq[place]", @sq[:place], class: "form-control"  %>
 						</div>
 						<div class="form-group">
-							<%= label_tag 'sq[shot_date]', "撮影日時" %>
+							<%= label_tag 'sq[shot_date]', "撮影日" %>
 							<%= text_field_tag "sq[shot_date]", @sq[:shot_date], class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= label_tag 'sq[shot_time]', "撮影時間" %>
+							<%= text_field_tag "sq[shot_time]", @sq[:shot_time], class: "form-control"  %>
 						</div>
 						<div class="form-group">
 							<%= label_tag 'sq[film]', "フィルム" %>
@@ -56,7 +60,10 @@
 							<%= label_tag 'sq[file_name]', "ファイル名" %>
 							<%= text_field_tag "sq[file_name]", @sq[:file_name], class: "form-control"  %>
 						</div>
-
+						<div class="form-group">
+							<%= label_tag 'sq[md5]', "md5" %>
+							<%= text_field_tag "sq[md5]", @sq[:md5], class: "form-control"  %>
+						</div>
 					</div>
 				</div>
 

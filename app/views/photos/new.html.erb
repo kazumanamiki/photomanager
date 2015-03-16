@@ -1,5 +1,46 @@
-<h1>New Photo</h1>
+<h1>写真新規追加</h1>
 
-<%= render 'form' %>
+<%= form_for(@photo) do |f| %>
+	<div class="row">
 
-<%= link_to 'Back', photos_path %>
+		<div class="col-sm-6">
+			<div class="field">
+				<%= f.file_field :image %>
+				<%= f.hidden_field :image_cache %>
+				<% if @photo.image? %>
+					<div class="thumbnail">
+						<%= image_tag @photo.image.url %>
+					</div>
+				<% end %>
+				<% if @photo.persisted? && @photo.image? %>
+					<%= f.check_box :remove_image %>画像を削除
+				<% end %>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<table class="table table-hover table-striped">
+				<tr><th>項目</th><th>値</th></tr>
+				<tr><td>写真番号</td><td><%= f.text_field :number, class: "form-control"%></td></tr>
+				<tr><td>場所</td><td><%= f.text_field :place, class: "form-control"%></td></tr>
+				<tr><td>撮影日（時期）</td><td><%= f.text_field :shot_date, class: "form-control"%></td></tr>
+				<tr><td>撮影時間</td><td><%= f.text_field :shot_time, class: "form-control"%></td></tr>
+				<tr><td>フィルムサイズ</td><td><%= f.text_field :film, class: "form-control"%></td></tr>
+				<tr><td>カメラ</td><td><%= f.text_field :camera, class: "form-control"%></td></tr>
+				<tr><td>レンズ</td><td><%= f.text_field :lens, class: "form-control"%></td></tr>
+				<tr><td>取り込み会社</td><td><%= f.text_field :capture_office, class: "form-control"%></td></tr>
+				<tr><td>コメント</td><td><%= f.text_area :comment, class: "form-control"%></td></tr>
+				<tr><td>ボリューム</td><td><%= f.text_field :volume, class: "form-control"%></td></tr>
+				<tr><td>パス</td><td><%= f.text_field :path, class: "form-control"%></td></tr>
+				<tr><td>ファイル名</td><td><%= f.text_field :file_name, class: "form-control"%></td></tr>
+				<tr><td>md5</td><td><%= f.text_field :md5, class: "form-control"%></td></tr>
+				<tr><td>ファイルサイズ</td><td><%= f.text_field :file_size, class: "form-control"%></td></tr>
+				<tr><td>タグ</td><td><%= text_field_tag 'photo[tag_list]', @photo.tag_list.join(','), "data-role" => "tagsinput" %></td></tr>
+			</table>
+			<p>
+				<%= f.submit "追加", class: "btn btn-primary btn-lg" %></td>
+			</p>
+		</div>
+	</div>
+<% end %>
+
