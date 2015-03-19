@@ -36,6 +36,9 @@ gem 'ransack'
 # tags gem
 gem 'acts-as-taggable-on', '~> 3.4'
 
+#lightbox2
+gem 'lightbox2-rails'
+
 # bootstrap gems
 gem 'therubyracer'
 gem 'less-rails'

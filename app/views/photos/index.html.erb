@@ -12,7 +12,8 @@
 <% @photos.each do |photo| %>
   <div class="photo">
     <div class="image">
-      <%= image_tag(photo.image.url, :width => "150") %>
+      <%= link_to image_tag(photo.image.url, :width => "150"), photo.image.url, :'data-lightbox' => photo.id, :'data-title' => photo.file_name %>
+      <%=  %>
     </div>
     <div class="place">
       <p><%= photo.place %></p>
